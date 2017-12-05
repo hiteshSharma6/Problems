@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class NQueen {
 	
@@ -85,12 +86,13 @@ public class NQueen {
 		        System.arraycopy(boardTrack[k], 0, currentTrack[k], 0, n);
 		    }
 			if(boardTrack[i][j] != 2) {
-				board[i][j] = 1;				
+				board[i][j] = 1;	
+				int diagonalLR, diagonalRL;
 				for(int k=0; k<n; ++k) {
 					boardTrack[i][k] = 2;
 					boardTrack[k][j] = 2;
-					int diagonalLR = j-i+k;
-					int diagonalRL = j+i-k;
+					diagonalLR = j-i+k;
+					diagonalRL = j+i-k;
 					if(diagonalLR >= 0 && diagonalLR < n)
 						boardTrack[k][diagonalLR] = 2;
 					if(diagonalRL >=0 && diagonalRL < n)
@@ -107,9 +109,11 @@ public class NQueen {
 	}
 
 	public static void main(String[] args) {
-		
-		placeNQueens2(4);
-		placeNQueens1(4);
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the board size(n*n): ");
+		int n = sc.nextInt();
+		placeNQueens2(n);
+		placeNQueens1(n);
 
 	}
 
