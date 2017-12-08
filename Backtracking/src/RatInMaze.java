@@ -63,6 +63,7 @@ public class RatInMaze {
 			}
 		}
 		ratInAMaze(maze);
+		sc.close();
 		
 	}
 

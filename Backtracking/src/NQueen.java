@@ -88,14 +88,15 @@ public class NQueen {
 			if(boardTrack[i][j] != 2) {
 				board[i][j] = 1;	
 				int diagonalLR, diagonalRL;
-				for(int k=0; k<n; ++k) {
-					boardTrack[i][k] = 2;
+//				Making the upper values of row to 2 because only those elements
+//				need to be matched if a queen can be placed
+				for(int k=i; k<n; ++k) {
 					boardTrack[k][j] = 2;
 					diagonalLR = j-i+k;
 					diagonalRL = j+i-k;
-					if(diagonalLR >= 0 && diagonalLR < n)
+					if(diagonalLR < n)
 						boardTrack[k][diagonalLR] = 2;
-					if(diagonalRL >=0 && diagonalRL < n)
+					if(diagonalRL >= 0)
 						boardTrack[k][diagonalRL] = 2;
 				}
 				traverse(board, boardTrack, n, i+1);
@@ -114,6 +115,7 @@ public class NQueen {
 		int n = sc.nextInt();
 		placeNQueens2(n);
 		placeNQueens1(n);
+		sc.close();
 
 	}
 
