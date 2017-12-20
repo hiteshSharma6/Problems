@@ -21,7 +21,7 @@ public class SieveOfEratosthenes {
 		Arrays.fill(arr, true);
 		arr[0] = false;
 		for(int i = 2; i*i <= n ; ++i) {
-			if(arr[i-1] == true) {
+			if(arr[i-1]) {
 				for(int j = i; j*i <= n; ++j) {
 					arr[i*j - 1] = false;
 				}

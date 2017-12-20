@@ -4,7 +4,7 @@ import java.util.Scanner;
 you can achieve a weight of d units using only the given weights? 
 Any of the given weights can be used any number of times (including 0 number of times).
 */
-class Euclid {
+class EuclidValue {
 	public long x;
 	public long y;
 }
@@ -50,13 +50,13 @@ public class HowMuchGiven_Weight_A_B {
 	}
 
 	private static long modInverse(long a, long b) {
-		Euclid euclid = extendedEuclid(a, b);
+		EuclidValue euclid = extendedEuclid(a, b);
 		long inverse = (euclid.x%b + b)%b; 		/*for Negative Numbers also*/
 		return inverse;
 	}
 
-	private static Euclid extendedEuclid(long a, long b) {
-		Euclid euclid = new Euclid();
+	private static EuclidValue extendedEuclid(long a, long b) {
+		EuclidValue euclid = new EuclidValue();
 		if(a < b) {
 			euclid = extendedEuclid(b, a);
 			return euclid;
@@ -66,7 +66,7 @@ public class HowMuchGiven_Weight_A_B {
 			euclid.y = 0;
 			return euclid;
 		}
-		Euclid prev = extendedEuclid(b, a%b);
+		EuclidValue prev = extendedEuclid(b, a%b);
 		euclid.x = prev.y;
 		euclid.y = prev.x - a/b*prev.y;
 		return euclid;
