@@ -9,7 +9,7 @@ class EuclidValue {
 	public long y;
 }
 
-public class HowMuchGiven_Weight_A_B {
+public class ModInverse {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
